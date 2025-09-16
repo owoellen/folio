@@ -16,12 +16,7 @@
             <ul>
                 <li><a href='..'>home</a></li>
                 <li><a href='../about'>about me</a></li>
-                <li><a class='dropdown-arrow' href='../portfolio'>portfolio</a>
-                    <ul class='sub-menus'>
-                        <li><a href=''>no work added yet :(</a></li>
-                        <li><a href='../portfolio'>view all</a></li>
-                    </ul>
-                </li>
+                <li><a href='../portfolio'>portfolio</a></li>
                 <li><a href='../contact'>contact me</a></li>
             </ul>
         </nav>
@@ -33,17 +28,36 @@
             </div>            
             
             <div class="work">
-                <!--credit to w3schools y'all are cool-->
-                <div class="responsive">
-                    <div class="gallery">
-                      <a target="_blank" href="/resx/portfolio/temp.gif">
-                        <img src="/resx/portfolio/temp.gif" alt="the (albeit temporary atm) cover - ramiel from neon genesis evangelion!">
-                      </a>
-                      <div class="desc">"Is someone there..?" (2024) - a ~10min fully improvised ambient track partially inspired by DELTARUNE's 'UNUSED' text (currently unreleased sorry)</div>
-                    </div>
-                  </div>
-                  
-                  <div class="clearfix"></div>
+                <!--thank you random stackoverflow user>
+                <!--https://stackoverflow.com/questions/68107197/load-images-from-folder-into-html-page-for-display-in-gallery-album-automaticall-->
+                <div class="ajax-inserted-content">
+  <!-- Section Gallery -->
+  <section class="section gallery grid layout-4-col">
+   <div class="container">
+     <div class="row">
+     <?php
+        $serverroot = 'https://vulpes.uk';
+        $imagesPath = '/imgportfolio/';
+        $dir = 'https://vulpes.uk/'; 
+        $files = scandir($dir);
+        $exts = ['png','jpg','jpeg','gif','bmp','webp'];
+        foreach ($files as $file) {
+          if ($file === '..' || $file === '.') continue;  
+          $ext = explode(".", $file);
+          $ext = strToLower($ext[count($ext)-1]);
+          if (!in_array($ext, $exts)) continue; // if not a valid image file, skip 
+     ?>
+  <div class="col-3 col-lg-4 col-md-6 col-sm-12">
+     <div class="gallery-item">
+       <div class="gallery-img">
+         <img data-svg="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" src="<?php echo $imagesPath . $file;?>" alt="Demo img">
+
+         <!-- <img data-lazy-image src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" data-src="<?php echo $imagesPath . $file;?>" alt="Demo img"> -->
+       </div>
+     </div>
+   </div>
+        
+    <?php }?>
             </div>
 
         </div>
