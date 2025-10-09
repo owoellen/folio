@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>the portfolio - Ellen's Website I Guess™</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/style.css">
-        <script src="/script.js" async defer></script>
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <title>the portfolio - Ellen's Website I Guess™</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0-beta.1/lightgallery.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0-beta.1/css/lightgallery-bundle.min.css"
+        integrity="sha256-6j8hDi3Cu6DoETd2MWE4OAh6ytgNkksHracepvrskHY=" crossorigin="anonymous">
+</head>
+
+<body>
 
     <div class="nav">
         <nav id='menu'>
-            <label for='responsive-menu'></label><input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+            <label for='responsive-menu'></label><input type='checkbox' id='responsive-menu'
+                onclick='updatemenu()'><label></label>
             <ul>
                 <li><a href='..'>home</a></li>
                 <li><a href='../about'>about me</a></li>
@@ -22,45 +28,22 @@
         </nav>
     </div>
 
-        <div class="main-content">
-            <div class="bigtextdiv">
-                <h1 class="big-text">my portfolio</h1>
-            </div>            
-            
-            <div class="work">
-                <!--thank you random stackoverflow user>
-                <!--https://stackoverflow.com/questions/68107197/load-images-from-folder-into-html-page-for-display-in-gallery-album-automaticall-->
-                <div class="ajax-inserted-content">
-  <!-- Section Gallery -->
-  <section class="section gallery grid layout-4-col">
-   <div class="container">
-     <div class="row">
-     <?php
-        $serverroot = 'https://vulpes.uk';
-        $imagesPath = '/imgportfolio/';
-        $dir = 'https://vulpes.uk/'; 
-        $files = scandir($dir);
-        $exts = ['png','jpg','jpeg','gif','bmp','webp'];
-        foreach ($files as $file) {
-          if ($file === '..' || $file === '.') continue;  
-          $ext = explode(".", $file);
-          $ext = strToLower($ext[count($ext)-1]);
-          if (!in_array($ext, $exts)) continue; // if not a valid image file, skip 
-     ?>
-  <div class="col-3 col-lg-4 col-md-6 col-sm-12">
-     <div class="gallery-item">
-       <div class="gallery-img">
-         <img data-svg="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" src="<?php echo $imagesPath . $file;?>" alt="Demo img">
+    <div class="main-content">
+        <div class="bigtextdiv">
+            <h1 class="big-text">my portfolio</h1>
+        </div>
 
-         <!-- <img data-lazy-image src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzIDIiPjwvc3ZnPg==" data-src="<?php echo $imagesPath . $file;?>" alt="Demo img"> -->
-       </div>
-     </div>
-   </div>
-        
-    <?php }?>
-            </div>
+        <div class="work">
+            <script type="text/javascript">
+                lightGallery(document.getElementById('lightgallery'), {
+                    plugins: [lgZoom, lgThumbnail]
+                });
+            </script>
 
         </div>
 
-    </body>
+    </div>
+
+</body>
+
 </html>
